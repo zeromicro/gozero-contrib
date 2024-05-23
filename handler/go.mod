@@ -1,4 +1,4 @@
-module github.com/zeromicro/zero-contrib/handler
+module github.com/wqyjh/zero-contrib/handler
 
 go 1.16
 
