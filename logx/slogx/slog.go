@@ -56,9 +56,10 @@ func (w *SlogWriter) Stat(v interface{}, fields ...logx.LogField) {
 }
 
 func toSlogFields(fields ...logx.LogField) []interface{} {
-	slogFields := make([]interface{}, 0, len(fields) * 2)
-	for _, field := range fields {
-		slogFields = append(slogFields, field.Key, field.Value)
+	slogFields := make([]interface{}, len(fields)*2)
+	for i, field := range fields {
+		slogFields[i*2] = field.Key
+		slogFields[i*2+1] = field.Value
 	}
 
 	return slogFields
