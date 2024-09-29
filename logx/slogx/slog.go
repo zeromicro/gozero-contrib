@@ -20,7 +20,7 @@ func NewSlogWriter(handler slog.Handler) logx.Writer {
 }
 
 func (w *SlogWriter) Alert(v interface{}) {
-	w.logger.Error(fmt.Sprint(v))
+	w.logger.Error(fmt.Sprintf("%v", v))
 }
 
 func (w *SlogWriter) Close() error {
@@ -28,31 +28,31 @@ func (w *SlogWriter) Close() error {
 }
 
 func (w *SlogWriter) Debug(v interface{}, fields ...logx.LogField) {
-	w.logger.Debug(fmt.Sprint(v), toSlogFields(fields...)...)
+	w.logger.Debug(fmt.Sprintf("%v", v), toSlogFields(fields...)...)
 }
 
 func (w *SlogWriter) Error(v interface{}, fields ...logx.LogField) {
-	w.logger.Error(fmt.Sprint(v), toSlogFields(fields...)...)
+	w.logger.Error(fmt.Sprintf("%v", v), toSlogFields(fields...)...)
 }
 
 func (w *SlogWriter) Info(v interface{}, fields ...logx.LogField) {
-	w.logger.Info(fmt.Sprint(v), toSlogFields(fields...)...)
+	w.logger.Info(fmt.Sprintf("%v", v), toSlogFields(fields...)...)
 }
 
 func (w *SlogWriter) Severe(v interface{}) {
-	w.logger.Error(fmt.Sprint(v))
+	w.logger.Error(fmt.Sprintf("%v", v))
 }
 
 func (w *SlogWriter) Slow(v interface{}, fields ...logx.LogField) {
-	w.logger.Warn(fmt.Sprint(v), toSlogFields(fields...)...)
+	w.logger.Warn(fmt.Sprintf("%v", v), toSlogFields(fields...)...)
 }
 
 func (w *SlogWriter) Stack(v interface{}) {
-	w.logger.Error(fmt.Sprint(v))
+	w.logger.Error(fmt.Sprintf("%v", v))
 }
 
 func (w *SlogWriter) Stat(v interface{}, fields ...logx.LogField) {
-	w.logger.Info(fmt.Sprint(v), toSlogFields(fields...)...)
+	w.logger.Info(fmt.Sprintf("%v", v), toSlogFields(fields...)...)
 }
 
 func toSlogFields(fields ...logx.LogField) []interface{} {
